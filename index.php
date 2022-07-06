@@ -1,25 +1,23 @@
 <?php
-  if(isset($_GET['c'])){
-      $controller = ucfirst($_GET['c']);
-      $path_controller = "controller/$controller.php";
 
-      //verifica se o arquivo de controller existe
-      if(file_exists($path_controller)){
-          require $path_controller;
+$base_url = 'http://localhost/3infob/Miguel/projeto_final_3e2/index.php';
+$controlador_padrao = 'categoria';
+$controlador = ucfirst($_GET['c'] ?? $controlador_padrao);
+$metodo = $_GET['m'] ?? 'index';
 
-          //verifica se foi enviada a variável $_GET['m']
-          //que contém o método do controlador que desejo exec
-            $metodo = $_GET['m'] ?? "index";
+$caminho_controlador = "controller/$controlador.php";
+if(file_exists($caminho_controlador)){
+    require $caminho_controlador;
+    $objController = new $controlador();
+    $id = $_GET['id'] ?? null;
+    if(is_callable(array($objController, $metodo))){
+        call_user_func_array(array($objController, $metodo), array($id));
+    }
+}
 
-            //cria o objeto controlador
-            $obj = new $controller();
 
-            //verifica se o controlador possui uma função
-            if(is_callable(array($obj, $metodo))){
-                //executa o método do controlador                 
-                call_user_func_array(array($obj, $metodo), array());
-            }
-      }
-
-  }
+function base_url(){
+    global $base_url;
+    return $base_url;
+}
 
