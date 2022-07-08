@@ -6,8 +6,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
+                <th class="col-6">Nome</th>
                 <th>Preço</th>
                 <th>Marca</th>
                 <th>Foto</th>
@@ -18,7 +17,6 @@
             <?php foreach($produtos as $produto):?>
             <tr>
                 <td><?php echo $produto['nome']; ?></td>
-                <td><?php echo $produto['descricao']; ?></td>
                 <td><?php echo $produto['preco']; ?></td>
                 <td><?php echo $produto['marca']; ?></td>
                 <td><?php echo $produto['foto']; ?></td>

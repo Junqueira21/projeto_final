@@ -1,6 +1,6 @@
 <?php
  
- require "config/Conexao.php";
+ require_once "config/Conexao.php";
 
  class ProdutoModel{
 
@@ -10,7 +10,7 @@
      }
 
      function inserir($nome, $descricao, $preco, $marca, $foto, $idcategoria){
-        $sql = "INSERT INTO produto (nome) values (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (nome, descricao, preco, marca, foto, categoria_idcategoria) values (?, ?, ?, ?, ?, ?)";
         $comando = $this->conexao->prepare($sql);  
         $comando->bind_param("ssdssi", $nome, $descricao, $preco, $marca, $foto, $idcategoria); 
         return $comando->execute(); 
