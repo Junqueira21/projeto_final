@@ -9,14 +9,15 @@ function __construct(){
     $this->categoria_model = new CategoriaModel();
  }
 
- function salvar_foto() {
+ function salvar() {
 
-   if(isset($_FILES['foto']['nome']));
-   $nome_imagem = time() . $_FILES['foto']['name'];
-   $origen = $_FILES['foto']['tmp_name'];
-   $destino ="./fotos"/
-   if(move_uploaded_file($origen, $destino)){
-      return $destino;
+   if(isset($_POST['nome']) && !empty($_POST[''])){
+      $nome_foto = $this->salvar_foto() ?? "semfoto.jpg";
+
+      if(empty($_POST['idproduto'])){
+         $this-model->
+      }
+   }
    }
  }
 }
