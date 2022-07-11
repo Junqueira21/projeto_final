@@ -23,16 +23,40 @@
         return $comando->execute(); 
      }
 
-     function atualizar($nome, $id , $descricao, $preco, $marca, $foto, $idcategoria){
+     function atualizar($nome, $id , $descricao, $preco, $marca, $foto, $categoria_idcategoria){
         $sql = "UPDATE produto SET nome =?, descricao =?, preco=?, marca=?, foto=?, idcategoria=?  WHERE idproduto=?";
         $comando = $this->conexao->prepare($sql);  
         $comando->bind_param("ssdssii", $nome, $descricao, $preco, $marca, $foto, $idcategoria, $id); 
         $comando->execute(); 
      }
 
+     function buscarPorLikeNome($nome){
+      $sql = "SELECT * FROM produto WHERE nome like  ?";
+      $comando = $this->conexao->prepare($sql);
+      $nome = "%$nome%";
+      $comando->bind_param('s', $nome);
+      if($comando->execute()){
+          $resultado = $comando->get_result();
+          return $resultado->fetch_all(MYSQLI_ASSOC);
+      } 
+      return null;
+   }
+
+     function buscarPorCategoria($idcategoria){
+      $sql = "SELECT * FROM produto WHERE categoria_idcategoria = ?";
+      $comando = $this->conexao->prepare($sql);
+      $comando->bind_param('i', $idcategoria);  
+      if($comando->execute()){
+          $resultado = $comando->get_result();
+          return $resultado->fetch_all(MYSQLI_ASSOC);
+      } 
+      return null;
+   }
+   
      function buscarTodos(){
         $sql = "SELECT * FROM produto";
         $comando = $this->conexao->prepare($sql);  
+        $comando->bind_param('i')  
         if($comando->execute()){
             $resultado = $comando->get_result();
             return $resultado->fetch_all(MYSQLI_ASSOC);

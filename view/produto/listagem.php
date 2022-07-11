@@ -19,7 +19,8 @@
                 <td><?php echo $produto['nome']; ?></td>
                 <td><?php echo $produto['preco']; ?></td>
                 <td><?php echo $produto['marca']; ?></td>
-                <td><?php echo $produto['foto']; ?></td>
+                <a href="<?php echo $produto['foto']; ?>">
+                <td><img src="<?php echo $produto['foto']; ?>" heig="30px"></td>
             <td>         
                     <a href="<?= base_url() ?>?c=produto&m=excluir&id=<?= $produto['idproduto'] ?>" class='btn btn-danger' title='Excluir'><i class="fa-solid fa-trash-can"></i></a>
                     <a href="<?= base_url() ?>?c=produto&m=editar&id=<?= $produto['idproduto'] ?>" class='btn btn-primary' title="Atualizar"><i class="fa-solid fa-pencil"></i></a>  

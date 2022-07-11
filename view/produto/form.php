@@ -3,7 +3,7 @@
         <h1>Gadastro de Produto</h1>
         <hr>
 
-        <form method="POST" action="<?= base_url() . '?c=produto&m=salvar' ?>" enctyp="multipart/part-data">
+        <form method="POST" action="<?= base_url() . '?c=produto&m=salvar' ?>" enctype ="multipart/part-data">
   
         <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
@@ -35,7 +35,7 @@
     <select type="text" class="form-control" id="categoria" name="categoria">
       <option></option>
       <?php foreach($categorias as $categoria):?>
-      <option value="<?= $produto['idcategoria'] ?? '' ?>"><?= $categoria['nome'] ?? ''?>" <?php $categoria['idcategoria'] == ($produto['categoria_idcategoria']) ? "selected": ""></option ?>>
+      <option value="<?= $produto['idcategoria'] ?? '' ?>"><?= $categoria['nome'] ?? ''?>" <?= ($categoria['idcategoria'] == ($produto['categoria_idcategoria'] ??)) ? "selected": ""></option ?>
       <?php endforeach;?>
   </select>  
   </div>

@@ -1,7 +1,7 @@
 <?php
 
 $base_url = 'http://localhost/3infob/Miguel/projeto_final_3e2/index.php';
-$controlador_padrao = 'categoria';
+$controlador_padrao = 'home';
 $controlador = ucfirst($_GET['c'] ?? $controlador_padrao);
 $metodo = $_GET['m'] ?? 'index';
 

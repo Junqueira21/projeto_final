@@ -11,14 +11,14 @@
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <title>Hello, world!</title>
+    <title>Sistema de catálogo</title>
   </head>
   <body>
 
   <!-- cabeçalho -->
     <header style="background-color: black;">
         <div class="container text-white pt-3 pb-3" >
-          <h1>Catálogo do IF</h1>
+          <a href="<?= base_url()."?c=home"?>" class="text-white text-decoration-none"><h1>Catálogo do IF</h1></a>
           <p>Aqui você encontra de tudo</p>
         </div>  
     </header>
